@@ -5,8 +5,8 @@ import {
   OnInit,
   Output,
   ViewChild,
+  OnDestroy,
 } from '@angular/core';
-import { Location } from '@angular/common';
 
 import { InstascanService } from '../../core/instascan.service';
 
@@ -15,15 +15,12 @@ import { InstascanService } from '../../core/instascan.service';
   templateUrl: './qrcode-reader.component.html',
   styleUrls: ['./qrcode-reader.component.scss'],
 })
-export class QrcodeReaderComponent implements OnInit {
+export class QrcodeReaderComponent implements OnInit, OnDestroy {
   @ViewChild('video') videoEl: ElementRef;
 
   @Output() scan = new EventEmitter();
 
-  constructor(
-    private location: Location,
-    private instascan: InstascanService,
-  ) {}
+  constructor(private instascan: InstascanService) {}
 
   ngOnInit() {
     this.instascan
@@ -37,8 +34,7 @@ export class QrcodeReaderComponent implements OnInit {
     this.scan.emit(content);
   }
 
-  cancel() {
+  ngOnDestroy() {
     this.instascan.stop();
-    this.location.back();
   }
 }

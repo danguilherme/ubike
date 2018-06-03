@@ -1,3 +1,12 @@
 <h2 class="page-title">Finalizar Viagem</h2>
+<p class="page-subtitle instructions">
+  Aponte sua câmera para o QR Code do dock.
+</p>
 
-<ub-qrcode-reader (scan)="onCodeScanned($event)"></ub-qrcode-reader>
+<ub-qrcode-reader class="reader" (scan)="onCodeScanned($event)"></ub-qrcode-reader>
+
+<div class="text-section cancel-panel">
+  <a
+    class="cancel button-block"
+    routerLink="../status">Cancelar</a>
+</div>
