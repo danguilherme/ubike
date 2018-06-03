@@ -5,11 +5,17 @@ import { LandingComponent } from './landing/landing.component';
 const routes: Routes = [
   {
     path: '',
-    component: LandingComponent,
+    // component: LandingComponent,
+    redirectTo: 'bikes',
+    pathMatch: 'full',
   },
   {
     path: 'login',
     loadChildren: './login/login.module#LoginModule',
+  },
+  {
+    path: 'bikes',
+    loadChildren: './bikes-map/bikes-map.module#BikesMapModule',
   },
 ];
 
