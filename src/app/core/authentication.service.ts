@@ -15,6 +15,7 @@ export class AuthenticationService {
     return {
       id: 1,
       name: 'Robson da Silva Sauro',
+      credit: 25,
     };
   }
 }

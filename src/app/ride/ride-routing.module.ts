@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { StartComponent } from './start/start.component';
 import { StatusComponent } from './status/status.component';
 import { EndComponent } from './end/end.component';
+import { SummaryComponent } from './summary/summary.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'end',
     component: EndComponent,
+  },
+  {
+    path: 'summary',
+    component: SummaryComponent,
   },
 ];
 
