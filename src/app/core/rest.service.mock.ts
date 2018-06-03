@@ -1,6 +1,6 @@
 import { Bike } from './models/bike';
 
-export const fetchNearBikes: { [key: number]: Bike[] } = {
+export const fetchNearDocks: { [key: string]: Bike[] } = {
   '7': [
     {
       battery: 0.8,
@@ -8,4 +8,10 @@ export const fetchNearBikes: { [key: number]: Bike[] } = {
       lng: -46.651601,
     },
   ],
+};
+
+export const startRide: { [key: string]: { startTime: Date } } = {
+  '1,1': {
+    startTime: new Date(),
+  },
 };

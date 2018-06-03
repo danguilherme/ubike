@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { InstascanService } from '../../core/instascan.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'ub-qrcode-reader',
@@ -10,19 +9,20 @@ import { Router } from '@angular/router';
 export class QrcodeReaderComponent implements OnInit {
   @ViewChild('video') videoEl: ElementRef;
 
-  constructor(private instascan: InstascanService, private router: Router) {}
+  @Output() scan = new EventEmitter();
+
+  constructor(private instascan: InstascanService) {}
 
   ngOnInit() {
     this.instascan
       .scan(this.videoEl.nativeElement)
       .then(content => this.onScan(content))
-      .catch(console.log);
+      .catch(console.error);
   }
 
-  onScan(id: string) {
+  onScan(content: string) {
     this.instascan.stop();
-    // TODO: start ride, go to timer
-    this.router.navigate(['login']);
+    this.scan.emit(content);
   }
 
   cancel() {

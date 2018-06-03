@@ -25,7 +25,7 @@ export class MapComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.rest.fetchNearBikes(7).subscribe(b => this.updateBikes(b));
+    this.rest.fetchNearDocks(7).subscribe(b => this.updateBikes(b));
 
     this.geolocation.currentPosition$.subscribe(position => {
       this.updateCurrentPosition(position);
