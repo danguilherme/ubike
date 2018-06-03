@@ -17,6 +17,10 @@ const routes: Routes = [
     path: 'bikes',
     loadChildren: './bikes-map/bikes-map.module#BikesMapModule',
   },
+  {
+    path: 'bikes/select',
+    loadChildren: './ride/ride.module#RideModule',
+  },
 ];
 
 @NgModule({
