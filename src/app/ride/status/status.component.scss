@@ -1,0 +1,16 @@
+@import '../../../assets/sass/settings/spacing';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  & > .timer {
+    flex: 1;
+  }
+
+  & > .enroute-panel,
+  & > .end-panel {
+    padding: $general-padding;
+  }
+}

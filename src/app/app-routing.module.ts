@@ -18,7 +18,7 @@ const routes: Routes = [
     loadChildren: './bikes-map/bikes-map.module#BikesMapModule',
   },
   {
-    path: 'bikes/select',
+    path: 'bikes/ride',
     loadChildren: './ride/ride.module#RideModule',
   },
 ];

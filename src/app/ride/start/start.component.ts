@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { RestService } from '../../core/rest.service';
 import { AuthenticationService } from '../../core/authentication.service';
@@ -12,6 +12,7 @@ import { AuthenticationService } from '../../core/authentication.service';
 export class StartComponent implements OnInit {
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private rest: RestService,
     private authentication: AuthenticationService,
   ) {}
@@ -23,7 +24,7 @@ export class StartComponent implements OnInit {
       .startRide(this.authentication.getLoggedUser().id, Number(dockId))
       .subscribe(result => {
         // TODO: start ride, go to timer
-        this.router.navigate(['timer']);
+        this.router.navigate(['../status'], { relativeTo: this.route });
       });
   }
 }

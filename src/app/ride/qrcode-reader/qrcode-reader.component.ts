@@ -18,6 +18,9 @@ export class QrcodeReaderComponent implements OnInit {
       .scan(this.videoEl.nativeElement)
       .then(content => this.onScan(content))
       .catch(console.error);
+
+      // somente para testes
+      setTimeout(() => this.onScan('1'), 2000);
   }
 
   onScan(content: string) {
