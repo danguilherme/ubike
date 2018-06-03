@@ -1,0 +1,9 @@
+:host {
+  display: flex;
+  height: 100%;
+
+  agm-map {
+    flex: 1;
+    height: 100%;
+  }
+}
