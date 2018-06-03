@@ -1,9 +1,12 @@
-import { Bike } from './models/bike';
+import { Dock } from './models/dock';
 
-export const fetchNearDocks: { [key: string]: Bike[] } = {
+export const fetchNearDocks: { [key: string]: Dock[] } = {
   '7': [
     {
       id: 1,
+      name: 'Bar do Zé',
+      address: 'Rua 2',
+      availableBikes: 5,
       lat: -23.507118,
       lng: -46.651601,
     },

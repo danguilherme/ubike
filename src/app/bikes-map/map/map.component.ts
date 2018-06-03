@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AgmMap, MapsAPILoader, LatLngBounds } from '@agm/core';
 
 import { RestService } from '../../core/rest.service';
-import { Bike } from '../../core/models/bike';
+import { Dock } from '../../core/models/dock';
 import { GeolocationService } from '../../core/geolocation.service';
 import { Marker } from '../../core/models/marker';
 
@@ -13,7 +13,7 @@ import { Marker } from '../../core/models/marker';
 })
 export class MapComponent implements OnInit {
   user: Marker;
-  bikes: Bike[];
+  bikes: Dock[];
   latLngBounds: LatLngBounds;
 
   @ViewChild(AgmMap) map: AgmMap;
@@ -32,7 +32,7 @@ export class MapComponent implements OnInit {
     });
   }
 
-  updateBikes(bikes: Bike[]): any {
+  updateBikes(bikes: Dock[]): any {
     this.bikes = bikes;
 
     this.updateBounds();
@@ -61,7 +61,7 @@ export class MapComponent implements OnInit {
     this.latLngBounds = latLngBounds;
   }
 
-  onMarkerClick(marker: Bike, index: number) {
+  onMarkerClick(marker: Dock, index: number) {
     console.log(`clicked the marker:`, marker);
   }
 }

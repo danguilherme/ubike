@@ -10,14 +10,14 @@
     (markerClick)="onMarkerClick(m, i)"
     [latitude]="m.lat"
     [longitude]="m.lng"
-    iconUrl="/assets/img/bike.png">
+    iconUrl="/assets/img/market.png">
 
     <agm-info-window>
       <div class="info-window">
-          <dl>
-            <dt>Battery:</dt> <dd>{{m.battery}}</dd>
-            <dt>Distance:</dt> <dd>{{'7 minutes'}}</dd>
-          </dl>
+        <strong>{{m.name}}</strong>
+        <dl>
+          <dt>Distance:</dt> <dd>{{'7 minutes'}}</dd>
+        </dl>
       </div>
     </agm-info-window>
   </agm-marker>
