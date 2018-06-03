@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { StartComponent } from './start/start.component';
 import { StatusComponent } from './status/status.component';
+import { EndComponent } from './end/end.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'status',
     component: StatusComponent,
+  },
+  {
+    path: 'end',
+    component: EndComponent,
   },
 ];
 

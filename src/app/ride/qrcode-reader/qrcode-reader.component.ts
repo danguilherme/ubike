@@ -1,4 +1,13 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
+import { Location } from '@angular/common';
+
 import { InstascanService } from '../../core/instascan.service';
 
 @Component({
@@ -11,7 +20,10 @@ export class QrcodeReaderComponent implements OnInit {
 
   @Output() scan = new EventEmitter();
 
-  constructor(private instascan: InstascanService) {}
+  constructor(
+    private location: Location,
+    private instascan: InstascanService,
+  ) {}
 
   ngOnInit() {
     this.instascan
@@ -19,8 +31,8 @@ export class QrcodeReaderComponent implements OnInit {
       .then(content => this.onScan(content))
       .catch(console.error);
 
-      // somente para testes
-      setTimeout(() => this.onScan('1'), 2000);
+    // somente para testes
+    setTimeout(() => this.onScan('1'), 2000);
   }
 
   onScan(content: string) {
@@ -30,5 +42,6 @@ export class QrcodeReaderComponent implements OnInit {
 
   cancel() {
     this.instascan.stop();
+    this.location.back();
   }
 }
