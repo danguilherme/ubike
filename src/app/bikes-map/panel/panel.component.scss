@@ -1,0 +1,11 @@
+:host {
+  display: block;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 -1px 10px #ccc;
+  z-index: 1;
+
+  & > .distance {
+    margin-bottom: 10px;
+  }
+}

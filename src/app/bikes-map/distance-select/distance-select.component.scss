@@ -1,0 +1,18 @@
+@import '../../../assets/sass/settings/colors';
+
+:host {
+  display: block;
+
+  & > .select {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px dashed $font-color;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+    margin: 0 .3em;
+    outline: none;
+  }
+}
