@@ -19,7 +19,7 @@
 
 // Class-based selectors which define undecorated design patterns,
 // for example media object known from OOCSS.
-// @import 'objects/*';
+@import 'objects/index';
 
 // Specific UI components (this is where the majority of the styles takes place).
 // UI components are often composed of Objects and Components.
