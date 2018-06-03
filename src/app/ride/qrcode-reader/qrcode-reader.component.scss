@@ -4,12 +4,14 @@
 
   & > .qrcode-read {
     flex: 1;
+    text-align: center;
   }
 }
 
 // TODO: object
 .qrcode-read {
   position: relative;
+  overflow: hidden;
 
   & > .watermark {
     position: absolute;
@@ -21,5 +23,6 @@
 
   & > .video {
     max-width: 100%;
+    max-height: 100%;
   }
 }
