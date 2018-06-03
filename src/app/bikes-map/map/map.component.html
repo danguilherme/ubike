@@ -1,10 +1,16 @@
-<agm-map [fitBounds]="latlngBounds" [maxZoom]="18">
+<agm-map [fitBounds]="latLngBounds" [maxZoom]="18">
+    <agm-marker
+    *ngIf="user"
+    [latitude]="user.lat"
+    [longitude]="user.lng"
+    iconUrl="/assets/img/pin.png"></agm-marker>
+
   <agm-marker
-    *ngFor="let m of markers; let i = index"
+    *ngFor="let m of bikes; let i = index"
     (markerClick)="onMarkerClick(m, i)"
     [latitude]="m.lat"
     [longitude]="m.lng"
-    label="bike">
+    iconUrl="/assets/img/bike.png">
 
     <agm-info-window>
       <div class="info-window">

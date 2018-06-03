@@ -1,5 +1,5 @@
-export interface Bike {
-  lat: number;
-  lng: number;
+import { Marker } from './marker';
+
+export interface Bike extends Marker {
   battery: number;
 }
