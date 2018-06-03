@@ -5,12 +5,13 @@ import { RideRoutingModule } from './ride-routing.module';
 import { StartComponent } from './start/start.component';
 import { QrcodeReaderComponent } from './qrcode-reader/qrcode-reader.component';
 import { StatusComponent } from './status/status.component';
+import { TimerComponent } from './timer/timer.component';
 
 @NgModule({
   imports: [
     CommonModule,
     RideRoutingModule
   ],
-  declarations: [StartComponent, QrcodeReaderComponent, StatusComponent]
+  declarations: [StartComponent, QrcodeReaderComponent, StatusComponent, TimerComponent]
 })
 export class RideModule { }

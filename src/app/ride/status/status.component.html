@@ -2,7 +2,10 @@
   <p class="enroute">Em andamento.</p>
   <p class="enjoy">Seu trajeto começou.<br>Tenha uma boa viagem e lembre-se de apreciar a paisagem.</p>
 </div>
-<div class="timer">TIMER</div>
+<div class="timer-panel">
+  <ub-timer class="timer" [start]="startTime"></ub-timer>
+  <p class="time">Seu tempo de viagem</p>
+</div>
 <div class="end-panel">
   <a class="button-block" routerLink="../end">Finalizar Viagem</a>
 </div>

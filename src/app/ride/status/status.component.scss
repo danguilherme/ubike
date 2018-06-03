@@ -3,14 +3,21 @@
 :host {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   height: 100%;
 
-  & > .timer {
-    flex: 1;
-  }
-
   & > .enroute-panel,
+  & > .timer-panel,
   & > .end-panel {
     padding: $general-padding;
+  }
+
+  & > .timer-panel {
+    text-align: center;
+  }
+
+  & > .timer-panel > .timer {
+    font-size: 4em;
+    font-weight: bold;
   }
 }
