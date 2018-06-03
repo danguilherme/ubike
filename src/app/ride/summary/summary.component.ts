@@ -43,8 +43,13 @@ export class SummaryComponent implements OnInit {
   ngOnInit() {
     this.data = this.storage.get('rideEnd');
 
-    this.currentCredit = this.authentication.getLoggedUser().credit;
+    this.currentCredit = this.authentication.loggedUser.credit;
     this.currentCredit -= this.finalPrice;
+
+    this.authentication.loggedUser = {
+      ...this.authentication.loggedUser,
+      credit: this.currentCredit,
+    };
   }
 
   calcPrice(timeInMinutes: number) {

@@ -22,7 +22,7 @@ export class EndComponent implements OnInit {
 
   onCodeScanned(dockId: string) {
     this.rest
-      .endRide(this.authentication.getLoggedUser().id, Number(dockId))
+      .endRide(this.authentication.loggedUser.id, Number(dockId))
       .subscribe(result => {
         this.storage.set('rideEnd', result);
         this.router.navigate(['../summary'], { relativeTo: this.route });

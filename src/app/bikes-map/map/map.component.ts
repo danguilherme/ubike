@@ -27,6 +27,7 @@ export class MapComponent implements OnInit, OnDestroy {
 
   selectedMarker: Marker;
   subscriptions: Subscription[] = [];
+  isFirstCentering = true;
 
   @Output() select = new EventEmitter();
   @ViewChild(AgmMap) map: AgmMap;
@@ -77,7 +78,13 @@ export class MapComponent implements OnInit, OnDestroy {
       );
     });
 
-    this.latLngBounds = latLngBounds;
+    if (this.isFirstCentering) {
+      this.latLngBounds = latLngBounds;
+
+      if (this.user && this.bikes && this.bikes.length) {
+        this.isFirstCentering = false;
+      }
+    }
   }
 
   onMarkerClick(marker: Dock, index: number) {

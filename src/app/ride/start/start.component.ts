@@ -21,7 +21,7 @@ export class StartComponent implements OnInit {
 
   onCodeScanned(dockId: string) {
     this.rest
-      .startRide(this.authentication.getLoggedUser().id, Number(dockId))
+      .startRide(this.authentication.loggedUser.id, Number(dockId))
       .subscribe(result => {
         this.router.navigate(['bikes/ride/status']);
       });
