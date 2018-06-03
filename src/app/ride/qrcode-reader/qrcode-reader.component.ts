@@ -27,8 +27,6 @@ export class QrcodeReaderComponent implements OnInit, OnDestroy {
       .scan(this.videoEl.nativeElement)
       .then(content => this.onScan(content))
       .catch(console.error);
-
-    setInterval(() => this.onScan('2'), 3000);
   }
 
   onScan(content: string) {
