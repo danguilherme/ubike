@@ -1,2 +1,2 @@
-<ub-map class="map"></ub-map>
-<ub-panel class="panel"></ub-panel>
+<ub-map class="map" (select)="onDockSelected($event)"></ub-map>
+<ub-panel class="panel" [dock]="marker" (select)="selectDock($event)"></ub-panel>

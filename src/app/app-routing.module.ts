@@ -5,8 +5,8 @@ import { LandingComponent } from './landing/landing.component';
 const routes: Routes = [
   {
     path: '',
-    // component: LandingComponent,
-    redirectTo: 'bikes',
+    component: LandingComponent,
+    // redirectTo: 'bikes',
     pathMatch: 'full',
   },
   {

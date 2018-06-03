@@ -1,4 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { AgmMap, MapsAPILoader, LatLngBounds } from '@agm/core';
 
 import { RestService } from '../../core/rest.service';
@@ -16,6 +22,9 @@ export class MapComponent implements OnInit {
   bikes: Dock[];
   latLngBounds: LatLngBounds;
 
+  selectedMarker: Marker;
+
+  @Output() select = new EventEmitter();
   @ViewChild(AgmMap) map: AgmMap;
 
   constructor(
@@ -25,8 +34,6 @@ export class MapComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.rest.fetchNearDocks(7).subscribe(b => this.updateBikes(b));
-
     this.geolocation.currentPosition$.subscribe(position => {
       this.updateCurrentPosition(position);
     });
@@ -40,8 +47,9 @@ export class MapComponent implements OnInit {
 
   updateCurrentPosition(userPosition: Position): any {
     const { latitude: lat, longitude: lng } = userPosition.coords;
-
     this.user = { lat, lng };
+
+    this.rest.fetchNearDocks(this.user, 7).subscribe(b => this.updateBikes(b));
 
     this.updateBounds();
   }
@@ -62,6 +70,7 @@ export class MapComponent implements OnInit {
   }
 
   onMarkerClick(marker: Dock, index: number) {
-    console.log(`clicked the marker:`, marker);
+    this.selectedMarker = marker;
+    this.select.emit(this.selectedMarker);
   }
 }

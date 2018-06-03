@@ -1,0 +1,33 @@
+:host {
+  display: block;
+  overflow: hidden;
+  flex: 1;
+
+  & > .hero {
+    position: relative;
+    background-color: #ccc;
+    padding: 100px 15px;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: -25px;
+      left: -25px;
+      width: 150%;
+      height: 50px;
+      -webkit-transform: rotateX(45deg);
+      transform: rotate(-4deg);
+      background: #ccc;
+      z-index: -1;
+    }
+
+    .description {
+      margin: 0;
+    }
+
+    .cta {
+      font-size: 1.2em;
+      margin-top: 1.5em;
+    }
+  }
+}

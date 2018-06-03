@@ -23,8 +23,7 @@ export class StartComponent implements OnInit {
     this.rest
       .startRide(this.authentication.getLoggedUser().id, Number(dockId))
       .subscribe(result => {
-        // TODO: start ride, go to timer
-        this.router.navigate(['../status'], { relativeTo: this.route });
+        this.router.navigate(['bikes/ride/status']);
       });
   }
 }

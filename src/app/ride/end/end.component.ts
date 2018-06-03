@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RestService } from '../../core/rest.service';
 import { AuthenticationService } from '../../core/authentication.service';
+import { StorageService } from '../../core/storage.service';
 
 @Component({
   selector: 'ub-end',
@@ -13,6 +14,7 @@ export class EndComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private rest: RestService,
+    private storage: StorageService,
     private authentication: AuthenticationService,
   ) {}
 
@@ -22,6 +24,7 @@ export class EndComponent implements OnInit {
     this.rest
       .endRide(this.authentication.getLoggedUser().id, Number(dockId))
       .subscribe(result => {
+        this.storage.set('rideEnd', result);
         this.router.navigate(['../summary'], { relativeTo: this.route });
       });
   }

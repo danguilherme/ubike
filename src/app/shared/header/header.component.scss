@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  background: #000;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 20px;
+  font-size: 1.2em;
+
+  & > .app-header > .app-name {
+    color: #fff;
+    text-decoration: none;
+    margin: 0;
+  }
+
+  box-shadow: 0 -5px 5px black;
+}

@@ -1,3 +1,6 @@
 <ub-distance-select class="distance"></ub-distance-select>
 
-<a class="select button-block" type="button" routerLink="/bikes/ride">Selecionar</a>
+<a
+  class="select button-block"
+  [routerLink]="dock ? ('/bikes/ride/' + dock.id) : ''"
+  [attr.disabled]="!dock ? '' : null">Selecionar</a>

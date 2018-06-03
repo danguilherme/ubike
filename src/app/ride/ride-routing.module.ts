@@ -8,15 +8,6 @@ import { SummaryComponent } from './summary/summary.component';
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'start',
-    pathMatch: 'full',
-  },
-  {
-    path: 'start',
-    component: StartComponent,
-  },
-  {
     path: 'status',
     component: StatusComponent,
   },
@@ -27,6 +18,15 @@ const routes: Routes = [
   {
     path: 'summary',
     component: SummaryComponent,
+  },
+  {
+    path: ':dockId',
+    redirectTo: ':dockId/start',
+    pathMatch: 'full',
+  },
+  {
+    path: ':dockId/start',
+    component: StartComponent,
   },
 ];
 

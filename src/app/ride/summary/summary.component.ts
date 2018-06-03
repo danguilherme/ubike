@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../core/authentication.service';
+import { StorageService } from '../../core/storage.service';
 
 @Component({
   selector: 'ub-summary',
@@ -31,9 +32,14 @@ export class SummaryComponent implements OnInit {
     return 'R$ ' + this.currentCredit.toFixed(2).replace(/\./, ',');
   }
 
-  constructor(private authentication: AuthenticationService) {}
+  constructor(
+    private storage: StorageService,
+    private authentication: AuthenticationService,
+  ) {}
 
   ngOnInit() {
+    const data = this.storage.get('rideEnd');
+
     this.currentCredit = this.authentication.getLoggedUser().credit;
     this.currentCredit -= this.finalPrice;
   }

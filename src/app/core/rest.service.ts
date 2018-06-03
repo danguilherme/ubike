@@ -3,30 +3,43 @@ import { HttpClient } from '@angular/common/http';
 import { of } from 'rxjs';
 
 import { fetchNearDocks, startRide, endRide } from './rest.service.mock';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RestService {
-  constructor(http: HttpClient) {}
+  readonly host = 'https://ubike.azurewebsites.net/api/v1';
+  // readonly host = 'https://ubikehackuber.herokuapp.com/api/v1/';
+  constructor(private http: HttpClient) {}
 
   /**
    *
    * @param distance distance in minutes
    */
-  fetchNearDocks(distance: number) {
-    return of(fetchNearDocks[distance]);
+  fetchNearDocks({ lat, lng }: { lat: number; lng: number }, distance: number) {
+    return this.http
+      .get(`${this.host}/docklessByDistancie/${lat}|${lng}/${distance}`)
+      .pipe(map((r: any) => r.data));
   }
 
   /**
-   *
-   * @param distance distance in minutes
    */
   startRide(userId: number, dockId: number) {
-    return of(startRide[`${userId},${dockId}}`]);
+    return this.http
+      .post(`${this.host}/startRun`, {
+        userId,
+        docklessId: dockId,
+      })
+      .pipe(map((r: any) => r.data));
   }
 
   endRide(userId: number, dockId: number): any {
-    return of(endRide[`${userId},${dockId}}`]);
+    return this.http
+      .post(`${this.host}/startRun`, {
+        userId,
+        docklessId: dockId,
+      })
+      .pipe(map((r: any) => r.data));
   }
 }
