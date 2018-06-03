@@ -5,4 +5,5 @@ export interface Dock extends Marker {
   availableBikes: number;
   name: string;
   address: string;
+  estimateTime: string;
 }

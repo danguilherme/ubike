@@ -12,20 +12,23 @@ export class SummaryComponent implements OnInit {
 
   currentCredit: number;
 
+  data;
+
   get finalPrice() {
-    return this.calcPrice(this.time);
+    return this.data && this.data.finalPrice;
   }
 
   get formattedTime() {
-    return this.time + ' minutos';
+    return this.data && this.data.runTime;
   }
 
   get formattedFinalPrice() {
-    return 'R$ ' + this.finalPrice.toFixed(2).replace(/\./, ',');
+    const price = this.finalPrice || 0;
+    return 'R$ ' + price.toFixed(2).replace(/\./, ',');
   }
 
   get formattedDistance() {
-    return '5.2km';
+    return '200m';
   }
 
   get formattedCurrentCredit() {
@@ -38,7 +41,7 @@ export class SummaryComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const data = this.storage.get('rideEnd');
+    this.data = this.storage.get('rideEnd');
 
     this.currentCredit = this.authentication.getLoggedUser().credit;
     this.currentCredit -= this.finalPrice;

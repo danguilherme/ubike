@@ -3,5 +3,14 @@
 
   agm-map {
     height: 100%;
+    .info-window {
+      dt {
+        font-weight: bold;
+      }
+      dd {
+        display: inline-block;
+        margin-bottom: 5px;
+      }
+    }
   }
 }

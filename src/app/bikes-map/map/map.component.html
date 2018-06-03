@@ -16,7 +16,9 @@
       <div class="info-window">
         <strong>{{m.name}}</strong>
         <dl>
-          <dt>Distance:</dt> <dd>{{'7 minutes'}}</dd>
+            <dt>Distancia:</dt> <dd>{{m.estimateTime}}</dd>
+            <dt>Bicicletas disponíveis:</dt> <dd>{{m.availableBikes}}</dd>
+            <dt>Endereço:</dt> <dd>{{m.address}}</dd>
         </dl>
       </div>
     </agm-info-window>

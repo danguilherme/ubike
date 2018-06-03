@@ -28,7 +28,7 @@ export class QrcodeReaderComponent implements OnInit, OnDestroy {
       .then(content => this.onScan(content))
       .catch(console.error);
 
-    setInterval(() => this.onScan('1'), 3000);
+    setInterval(() => this.onScan('2'), 3000);
   }
 
   onScan(content: string) {
