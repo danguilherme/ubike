@@ -1,0 +1,34 @@
+@import '../../../assets/sass/settings/spacing';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  & > .qrcode-read {
+    flex: 1;
+  }
+
+  & > .instructions,
+  & > .cancel-panel {
+    margin: 0;
+    padding: $general-padding;
+  }
+}
+
+// TODO: object
+.qrcode-read {
+  position: relative;
+
+  & > .watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: .7;
+  }
+
+  & > .video {
+    max-width: 100%;
+  }
+}

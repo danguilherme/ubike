@@ -2,6 +2,7 @@
   "name": "ubike",
   "version": "0.0.0",
   "scripts": {
+    "postinstall": "node ./bin/webpack-patch.js",
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
     "build:ng": "ng build --prod",
@@ -25,6 +26,7 @@
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
     "core-js": "^2.5.4",
+    "instascan": "^1.0.0",
     "normalize.css": "^8.0.0",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
